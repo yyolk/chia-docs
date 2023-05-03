@@ -81,8 +81,8 @@ Options:
 | :-----------: | :---------------: | :-----: | :------: | :------------------------------------------------------------------------------------------------------- |
 |      -wp      | --wallet-rpc-port | INTEGER |  False   | Set the port where the Wallet is hosting the RPC interface. See the rpc_port under wallet in config.yaml |
 |      -f       |   --fingerprint   | INTEGER |  False   | Set the fingerprint to specify which wallet to use                                                       |
-|      -o       |      --offer      |  TEXT   |   True   | A wallet id to offer and the amount to offer (formatted like wallet_id:amount)                           |
-|      -r       |     --request     |  TEXT   |   True   | A wallet id of an asset to receive and the amount you wish to receive (formatted like wallet_id:amount)  |
+|      -O       |      --offer      |  TEXT   |   True   | A wallet id to offer and the amount to offer (formatted like wallet_id:amount)                           |
+|      -R       |     --request     |  TEXT   |   True   | A wallet id of an asset to receive and the amount you wish to receive (formatted like wallet_id:amount)  |
 |      -p       |    --filepath     |  TEXT   |   True   | The path to write the generated offer file to                                                            |
 |      -m       |       --fee       |  TEXT   |  False   | A fee to add to the offer when it gets taken                                                             |
 |      -h       |      --help       |  None   |  False   | Show a help message and exit                                                                             |
@@ -220,7 +220,7 @@ Three flags are required to create the offer file:
 Here's the full command and result:
 
 ```bash
-(venv) $ chia wallet make_offer -o 1:0.1 -r 2:10 -p ~/offers/0.1_xch_for_10_usds.offer
+(venv) $ chia wallet make_offer -O 1:0.1 -R 2:10 -p ~/offers/0.1_xch_for_10_usds.offer
 Creating Offer
 --------------
 
@@ -420,10 +420,10 @@ If you have not sent the offer file elsewhere, you can cancel the offer by runni
 
 ## Create a multiple-token offer
 
-To create an offer with multiple tokens, simply add `-o` (offer) and `-r` (request) flags to the `make_offer` command as needed. For example:
+To create an offer with multiple tokens, simply add `-O` (offer) and `-R` (request) flags to the `make_offer` command as needed. For example:
 
 ```bash
-(venv) $ chia wallet make_offer -o 2:10 -o 3:10000 -r 1:0.1 -r 4:9000 -p ~/offers/10usds_10kckc_for_100bmojos_9ksbx.offer
+(venv) $ chia wallet make_offer -O 2:10 -O 3:10000 -R 1:0.1 -R 4:9000 -p ~/offers/10usds_10kckc_for_100bmojos_9ksbx.offer
 Creating Offer
 --------------
 
@@ -571,7 +571,7 @@ Wallet ID 2 type COLOURED_COIN CAT King Cole (Asset ID: 1121996b75cce3c746369ace
 The maker attempts to make an ambitious offer: 100 XCH for 1 million CKC. However, the Maker does not have enough money to create this offer. As a result, an Exception is thrown:
 
 ```bash
-(venv) $ chia wallet make_offer -o 2:1000000 -r 1:100 -p ~/offers/100xch_for_1mckc.offer
+(venv) $ chia wallet make_offer -O 2:1000000 -R 1:100 -p ~/offers/100xch_for_1mckc.offer
 Creating Offer
 --------------
 
@@ -737,7 +737,7 @@ Wallet ID 2 type COLOURED_COIN Stably USD (Asset ID: 6d95dae356e32a71db5ddcb4222
 The Maker offers 0.1 XCH in exchange for 10 USDS:
 
 ```bash
-(venv) $ chia wallet make_offer -o 1:0.1 -r 2:10 -p ~/offers/0.1xch_for_10usds.offer
+(venv) $ chia wallet make_offer -O 1:0.1 -R 2:10 -p ~/offers/0.1xch_for_10usds.offer
 Creating Offer
 --------------
 
@@ -867,7 +867,7 @@ The Maker received the XCH in one lump sum, so there is a single coin worth 1 XC
 The Maker creates an offer of 0.1 XCH for 10 USDS:
 
 ```bash
-(venv) $ chia wallet make_offer -o 1:0.1 -r 2:10 -p ~/offers/0.1xch_for_10usds.offer
+(venv) $ chia wallet make_offer -O 1:0.1 -R 2:10 -p ~/offers/0.1xch_for_10usds.offer
 Creating Offer
 --------------
 
@@ -926,7 +926,7 @@ Wallet ID 2 type COLOURED_COIN Stably USD (Asset ID: 6d95dae356e32a71db5ddcb4222
 Even though the Maker's balance hasn't changed, there are now two coins that sum to 1 XCH. The maker can now recreate the old offer:
 
 ```bash
-(venv) $ chia wallet make_offer -o 1:0.1 -r 2:10 -p ~/offers/0.1xch_for_10usds.offer
+(venv) $ chia wallet make_offer -O 1:0.1 -R 2:10 -p ~/offers/0.1xch_for_10usds.offer
 Creating Offer
 --------------
 

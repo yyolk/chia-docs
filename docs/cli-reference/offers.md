@@ -42,8 +42,8 @@ Options:
 | :-----------: | :---------------: | :-----: | :------: | :------------------------------------------------------------------------------------------------------- |
 |      -wp      | --wallet-rpc-port | INTEGER |  False   | Set the port where the Wallet is hosting the RPC interface. See the rpc_port under wallet in config.yaml |
 |      -f       |   --fingerprint   | INTEGER |  False   | Set the fingerprint to specify which wallet to use                                                       |
-|      -o       |      --offer      |  TEXT   |   True   | A wallet id to offer and the amount to offer (formatted like wallet_id:amount)                           |
-|      -r       |     --request     |  TEXT   |   True   | A wallet id of an asset to receive and the amount you wish to receive (formatted like wallet_id:amount)  |
+|      -O       |      --offer      |  TEXT   |   True   | A wallet id to offer and the amount to offer (formatted like wallet_id:amount)                           |
+|      -R       |     --request     |  TEXT   |   True   | A wallet id of an asset to receive and the amount you wish to receive (formatted like wallet_id:amount)  |
 |      -p       |    --filepath     |  TEXT   |   True   | The path to write the generated offer file to                                                            |
 |      -m       |       --fee       |  TEXT   |  False   | A fee to add to the offer when it gets taken                                                             |
 |      -h       |      --help       |  None   |  False   | Show a help message and exit                                                                             |
